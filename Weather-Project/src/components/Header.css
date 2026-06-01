@@ -1,0 +1,141 @@
+.header{
+    margin-top: 30px;
+    width: 100vw;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 17%;
+
+}
+.left-header{
+
+    display: flex;
+}
+.left-header .Logo{
+    width: 80px;
+    height: 80px;
+}
+
+.searchbar {
+    width: 500px;
+    height: 50px;
+    display: flex;
+    background-color: #1e1e1e;
+    align-items: center;
+    border-radius: 28px;
+    gap: 20px;
+    padding: 0 10px; /* Move indentation to container or textarea padding */
+    box-sizing: border-box;
+}
+
+.searchbar textarea {
+    border: none;
+    outline: none;
+    box-shadow: none;
+    background-color: transparent;
+    height: 50px;
+    width: 100%; /* Use 100% to fill container, subtracting gaps/padding automatically */
+    color: white;
+    
+    /* FIX 1: Reduce font size to fit height (50px height needs ~20-24px font max) */
+    font-size: 20px; 
+    font-weight: bold;
+    
+    /* FIX 2: Use padding instead of text-indent to prevent horizontal scrollbar */
+    padding: 0 10px; 
+    text-indent: 0; /* Remove text-indent */
+    
+    /* FIX 3: Ensure line-height matches height for vertical centering */
+    line-height: 50px; 
+    
+    resize: none;
+    overflow: hidden; /* Hides scrollbar if text somehow overflows */
+}
+
+.searchbar textarea::placeholder {
+    font-size: 20px;
+}   
+
+.right-header{
+    display: flex;
+    gap: 30px;
+}
+
+.right-header .Location {
+    background-color: skyblue;
+    width: 150px;
+    height: 30px;
+    border-radius: 28px;
+    border: none;
+    outline: none;
+    
+    /* FIX 1: Add a soft, colored shadow for depth */
+    box-shadow: 0 4px 15px rgba(135, 206, 235, 0.4); /* Skyblue with transparency */
+    
+    /* FIX 2: Essential for clickable feel */
+    cursor: pointer;
+    
+    /* FIX 3: Smooth transition for hover effects */
+    transition: all 0.3s ease;
+    
+    /* Optional: Center text if it's a button */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white; /* Ensure text is visible on skyblue */
+    font-weight: bold;
+}
+
+.Location:hover {
+    /* FIX 4: Enhance shadow and lift button slightly on hover */
+    box-shadow: 0 6px 20px rgba(135, 206, 235, 0.6);
+    transform: translateY(-2px); /* Lifts the button */
+    filter: brightness(1.05); /* Slightly brightens background */
+}
+
+.Location:active {
+    /* Optional: Press effect */
+    transform: translateY(0);
+    box-shadow: 0 2px 10px rgba(135, 206, 235, 0.4);
+}   
+
+.right-header .themeChanger {
+    background-color: #1e1e1e;
+    width: 50px;
+    height: 33px;
+    border-radius: 28px;
+    font-size: large;
+    border: none;
+    outline: none;
+    color: white; /* Ensure text is visible on dark background */
+    font-weight: bold;
+    cursor: pointer; /* Indicates clickability */
+    
+    /* Soft dark shadow for depth */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    
+    /* Smooth transition for hover effects */
+    transition: all 0.3s ease;
+    
+    /* Center text */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.right-header .themeChanger:hover {
+    /* Lift effect */
+    transform: translateY(-2px);
+    
+    /* Brighten shadow and background slightly */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+    filter: brightness(1.1);
+}
+
+.right-header .themeChanger:active {
+    /* Press effect */
+    transform: translateY(0);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    filter: brightness(0.9);
+}   
