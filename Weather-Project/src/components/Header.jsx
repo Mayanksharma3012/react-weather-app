@@ -12,7 +12,7 @@ export function Header(){
 
                 <div className="searchbar">
                     <i className="fa-solid fa-magnifying-glass"></i>
-                    <textarea type="text" placeholder="Search City" maxLength={3} />
+                    <textarea type="text" placeholder="Search City" maxLength={33} />
                 </div>
 
                 <div className="right-header">
