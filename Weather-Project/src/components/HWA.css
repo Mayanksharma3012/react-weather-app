@@ -1,0 +1,37 @@
+.HWA{
+    margin-top: 40px;
+    padding-left: 15vw;
+    margin-bottom: 40px;
+}
+
+.HWA-childs{
+    width: 70vw;
+    background-color: #1b1a1d;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10vw;
+    border-radius: 28px;
+}
+
+.HWA-childs div{
+    background-color: #16161a;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: 120px;
+    width: 140px;       
+    /* flex-shrink: 0;     Prevents shrinking when space is tight */
+    /* flex-grow: 0;  */
+    align-items: center;
+    justify-content: center;
+}
+
+.Humidity h1{
+    font-size: x-large;
+}
+.Wind h1{
+    font-size: x-large;
+}
