@@ -1,0 +1,100 @@
+.Foot {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 3rem 1rem;
+    margin-top: 3rem;
+    color: white;
+    box-shadow: 0 -2px 15px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: all 0.3s ease;
+}
+
+.Foot.dark {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.Foot.light {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.Foot > span {
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+.Details {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    font-size: 0.95rem;
+}
+
+.Details span {
+    font-weight: 500;
+}
+
+.name {
+    font-weight: 700;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+}
+
+.Links {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+}
+
+.linkdin, .github {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1.5rem;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.linkdin:hover, .github:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-5px);
+    border-color: rgba(255, 255, 255, 0.6);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+    .Foot {
+        padding: 2rem 1rem;
+        gap: 1rem;
+        margin-top: 2rem;
+    }
+    
+    .Foot > span {
+        font-size: 0.9rem;
+    }
+    
+    .Details {
+        font-size: 0.85rem;
+    }
+    
+    .Links {
+        gap: 1rem;
+    }
+    
+    .linkdin, .github {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+}

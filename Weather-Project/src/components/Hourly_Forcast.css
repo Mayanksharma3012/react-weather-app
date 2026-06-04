@@ -1,79 +1,141 @@
-.hour{
+.hour {
     margin-top: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
-    /* flex-direction: column; */
+    transition: all 0.3s ease;
 }
 
-.hourly{
+.hourly {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #1b1a1d;
-    border-radius: 28px;
+    border-radius: 30px;
+    backdrop-filter: blur(20px);
+    transition: all 0.3s ease;
+}
 
+.hourly.dark {
+    background-color: rgba(30, 30, 46, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.hourly.light {
+    background-color: rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(102, 126, 234, 0.15);
+}
+
+.heading_24 {
+    padding: 20px 40px;
+    text-align: center;
+}
+
+.heading_24 h2 {
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin: 0;
 }
 
 .hourlyContainer {
     height: 200px;
     display: flex;
-    gap: 60px;
+    gap: 20px;
     align-items: center;
-    width: 85vw;
-    padding-left: 40px;
-    padding-right: 40px;
-    
-    /* --- The Slider Setup --- */
+    width: 90vw;
+    max-width: 1200px;
+    padding: 0 40px;
     overflow-x: auto;
     scroll-behavior: smooth;
-
-    /* --- Firefox Scrollbar Styling --- */
-    scrollbar-width: thin;             /* Makes it sleek */
-    scrollbar-color: #3e3c42 #1b1a1d;  /* [Thumb Color] [Track Color] */
+    transition: all 0.3s ease;
 }
 
-/* --- Chrome, Safari, and Edge Scrollbar Styling --- */
+.hourlyContainer.dark {
+    scrollbar-color: #3e3c42 transparent;
+}
 
-/* 1. The overall scrollbar track area */
+.hourlyContainer.light {
+    scrollbar-color: #b0bfe8 transparent;
+}
+
 .hourlyContainer::-webkit-scrollbar {
-    height: 8px;                      /* Controls the height of horizontal scrollbar */
+    height: 8px;
 }
 
-/* 2. The background track of the scrollbar */
 .hourlyContainer::-webkit-scrollbar-track {
-    background: #1b1a1d;              /* Matches your .hourly background color */
+    background: transparent;
+}
+
+.hourlyContainer.dark::-webkit-scrollbar-thumb {
+    background: #3e3c42;
     border-radius: 10px;
-    margin: 0 40px;                   /* Aligns track perfectly with your padding */
 }
 
-/* 3. The draggable scrollbar thumb handle */
-.hourlyContainer::-webkit-scrollbar-thumb {
-    background: #3e3c42;              /* Subtle, elegant dark grey */
+.hourlyContainer.dark::-webkit-scrollbar-thumb:hover {
+    background: #5a5760;
+}
+
+.hourlyContainer.light::-webkit-scrollbar-thumb {
+    background: #b0bfe8;
     border-radius: 10px;
-    transition: background 0.3s ease;
 }
 
-/* 4. Glow/Highlight effect when the user hovers over it */
-.hourlyContainer::-webkit-scrollbar-thumb:hover {
-    background: #5a5760;              /* Brightens up beautifully on hover */
+.hourlyContainer.light::-webkit-scrollbar-thumb:hover {
+    background: #8fa3d0;
 }
 
-.childContainer{
-    background-color: #16161a;
-    border-radius: 15px;
+.childContainer {
+    background-color: transparent;
+    border-radius: 20px;
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    height: 120px;
-
-     width: 100px;       /* 1. Added 'px' unit */
-    flex-shrink: 0;     /* 2. Prevents shrinking when space is tight */
-    flex-grow: 0; 
+    gap: 15px;
+    height: 140px;
+    width: 100px;
+    flex-shrink: 0;
     align-items: center;
     justify-content: center;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    padding: 15px;
 }
-.Sun_Moon_logo{
-    color: skyblue;
+
+.childContainer.dark {
+    border-color: rgba(102, 126, 234, 0.2);
+}
+
+.childContainer.dark:hover {
+    background: rgba(102, 126, 234, 0.15);
+    border-color: rgba(102, 126, 234, 0.4);
+    transform: translateY(-5px);
+}
+
+.childContainer.light {
+    border-color: rgba(102, 126, 234, 0.2);
+}
+
+.childContainer.light:hover {
+    background: rgba(102, 126, 234, 0.1);
+    border-color: rgba(102, 126, 234, 0.5);
+    transform: translateY(-5px);
+}
+
+.childContainer span {
+    font-size: 14px;
+    font-weight: 600;
+    opacity: 0.8;
+}
+
+.Sun_Moon_logo {
+    font-size: 32px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hourly_temp {
+    font-size: 18px;
+    font-weight: 700;
 }

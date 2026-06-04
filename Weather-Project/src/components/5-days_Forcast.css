@@ -1,47 +1,97 @@
-.days_container{
-    padding-left: 15vw;
-    margin-bottom: 40px;
+.days_container {
+    padding: 0 5vw;
+    margin-bottom: 70px;
+    display: flex;
+    justify-content: center;
+    transition: all 0.3s ease;
 }
 
-.days{
-    width: 70vw;
-    background-color: #1b1a1d;
-    height: 180px;
+.days {
+    width: 100%;
+    max-width: 900px;
+    height: 190px;
     display: flex;
     align-items: center;
     justify-content: center;
-    /* flex-direction: column; */
-    gap: 7vw;
-    border-radius: 28px;
+    gap: 20px;
+    border-radius: 30px;
+    backdrop-filter: blur(20px);
+    transition: all 0.3s ease;
+    padding: 30px;
 }
 
-.day{
-    background-color: #16161a;
-    border-radius: 15px;
+.days.dark {
+    background-color: rgba(30, 30, 46, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.days.light {
+    background-color: rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(102, 126, 234, 0.15);
+}
+
+.day {
+    background-color: transparent;
+    border-radius: 20px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    height: 140px;
-    width: 140px;       
-    /* flex-shrink: 0;     Prevents shrinking when space is tight */
-    /* flex-grow: 0;  */
+    gap: 12px;
+    height: 160px;
+    width: 140px;
     align-items: center;
     justify-content: center;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    padding: 15px;
+    flex-shrink: 0;
 }
 
-.day .Daily-Weekdays{
-    font-size: xx-large;
+.day.dark {
+    background: rgba(102, 126, 234, 0.1);
+    border-color: rgba(102, 126, 234, 0.2);
 }
 
-.day .Daily-Weather{
-    font-size: larger;
-    color: skyblue;
+.day.dark:hover {
+    background: rgba(102, 126, 234, 0.2);
+    border-color: rgba(102, 126, 234, 0.4);
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(102, 126, 234, 0.25);
 }
 
-.day .Daily-temp{
-    font-size: larger;
+.day.light {
+    background: rgba(102, 126, 234, 0.08);
+    border-color: rgba(102, 126, 234, 0.2);
 }
-.day .Daily-Date{
-    font-size: xx-large;
-    font-weight: bold;
+
+.day.light:hover {
+    background: rgba(102, 126, 234, 0.15);
+    border-color: rgba(102, 126, 234, 0.4);
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(102, 126, 234, 0.15);
+}
+
+.Daily-Weekdays {
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.Daily-Weather {
+    font-size: 40px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.Daily-temp {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.Daily-Date {
+    font-size: 13px;
+    font-weight: 500;
+    opacity: 0.7;
 }

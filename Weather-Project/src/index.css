@@ -1,32 +1,52 @@
-html, body {
-    scrollbar-width: thin;             
-    scrollbar-color: #3e3c42 #1b1a1d;  
-    background-color: #101014; 
-    color: white;
+* {
     margin: 0;
     padding: 0;
-    scroll-behavior: smooth;
-    
-    /* 1. Prevents any accidental horizontal scrolling on the page */
-    overflow-x: hidden; 
+    box-sizing: border-box;
 }
 
-/* 2. Style the scrollbars globally */
+html, body {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark-mode {
+    background-color: #0f0f14;
+    color: white;
+    scrollbar-color: #3e3c42 #1b1a1d;
+}
+
+body.light-mode {
+    background-color: #e8f0ff;
+    color: #1a1a2e;
+    scrollbar-color: #b0bfe8 #e8f0ff;
+}
+
+/* Scrollbar styling */
 ::-webkit-scrollbar {
-    width: 8px;   /* Keeps your sleek vertical scrollbar */
-    height: 0px;  /* Hides the horizontal scrollbar completely in Chrome/Edge/Safari */
+    width: 10px;
+    height: 8px;
 }
 
 ::-webkit-scrollbar-track {
-    background: #1b1a1d;              
-    border-radius: 10px;
+    background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #3e3c42;              
+    background: #3e3c42;
     border-radius: 10px;
+    transition: background 0.3s ease;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #5a5760;              
+    background: #5a5760;
+}
+
+body.light-mode ::-webkit-scrollbar-thumb {
+    background: #b0bfe8;
+}
+
+body.light-mode ::-webkit-scrollbar-thumb:hover {
+    background: #8fa3d0;
 }

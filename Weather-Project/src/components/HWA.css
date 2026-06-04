@@ -1,37 +1,102 @@
-.HWA{
+.HWA {
     margin-top: 40px;
-    padding-left: 15vw;
+    padding: 0 5vw;
     margin-bottom: 40px;
+    display: flex;
+    justify-content: center;
+    transition: all 0.3s ease;
 }
 
-.HWA-childs{
-    width: 70vw;
-    background-color: #1b1a1d;
-    height: 150px;
+.HWA-childs {
+    width: 100%;
+    max-width: 900px;
+    height: 160px;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10vw;
-    border-radius: 28px;
+    gap: 30px;
+    border-radius: 30px;
+    backdrop-filter: blur(20px);
+    transition: all 0.3s ease;
+    padding: 30px;
 }
 
-.HWA-childs div{
-    background-color: #16161a;
-    border-radius: 15px;
+.HWA-childs.dark {
+    background-color: rgba(30, 30, 46, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.HWA-childs.light {
+    background-color: rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(102, 126, 234, 0.15);
+}
+
+.HWA-childs div {
+    border-radius: 20px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    height: 120px;
-    width: 140px;       
-    /* flex-shrink: 0;     Prevents shrinking when space is tight */
-    /* flex-grow: 0;  */
+    gap: 15px;
+    height: 130px;
+    width: 180px;
     align-items: center;
     justify-content: center;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    padding: 20px;
 }
 
-.Humidity h1{
-    font-size: x-large;
+.HWA-childs .Humidity.dark,
+.HWA-childs .Wind.dark,
+.HWA-childs .AQI.dark {
+    background: rgba(102, 126, 234, 0.1);
+    border-color: rgba(102, 126, 234, 0.2);
 }
-.Wind h1{
-    font-size: x-large;
+
+.HWA-childs .Humidity.dark:hover,
+.HWA-childs .Wind.dark:hover,
+.HWA-childs .AQI.dark:hover {
+    background: rgba(102, 126, 234, 0.2);
+    border-color: rgba(102, 126, 234, 0.4);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.15);
+}
+
+.HWA-childs .Humidity.light,
+.HWA-childs .Wind.light,
+.HWA-childs .AQI.light {
+    background: rgba(102, 126, 234, 0.08);
+    border-color: rgba(102, 126, 234, 0.2);
+}
+
+.HWA-childs .Humidity.light:hover,
+.HWA-childs .Wind.light:hover,
+.HWA-childs .AQI.light:hover {
+    background: rgba(102, 126, 234, 0.15);
+    border-color: rgba(102, 126, 234, 0.4);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.15);
+}
+
+.HWA-childs div h2 {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin: 0;
+    opacity: 0.7;
+}
+
+.HWA-childs div h1 {
+    font-size: 28px;
+    font-weight: 700;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.HWA-childs div h1 i {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
