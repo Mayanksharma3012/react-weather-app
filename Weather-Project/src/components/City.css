@@ -7,7 +7,6 @@
     justify-content: center;
     align-items: center;
     gap: 20px;
-    transition: all 0.3s ease;
     min-height: 350px;
 }
 
@@ -53,5 +52,63 @@
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+@media (max-width: 1024px) {
+    .container {
+        min-height: 300px;
+        padding: 50px 20px;
+    }
+
+    .temp {
+        font-size: 60px;
+    }
+
+    .city {
+        font-size: 32px;
+    }
+
+    .weather {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        min-height: 280px;
+        padding: 40px 20px;
+    }
+
+    .temp {
+        font-size: 50px;
+    }
+
+    .city {
+        font-size: 28px;
+    }
+
+    .weather {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        min-height: 240px;
+        padding: 30px 15px;
+        gap: 15px;
+    }
+
+    .temp {
+        font-size: 40px;
+    }
+
+    .city {
+        font-size: 22px;
+    }
+
+    .weather {
+        font-size: 13px;
     }
 }

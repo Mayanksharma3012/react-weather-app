@@ -1,5 +1,15 @@
 import './Header.css'
+import { useState } from 'react'
+
 export function Header({isDarkMode, toggleTheme}){
+    const [searchValue, setSearchValue] = useState('')
+
+    const handleSearchKeyDown = (e) => {
+        if (e.key === 'Enter') {
+            e.preventDefault()
+            setSearchValue('')
+        }
+    }
 
     return(
         <>
@@ -11,7 +21,14 @@ export function Header({isDarkMode, toggleTheme}){
 
                 <div className={`searchbar ${isDarkMode ? 'dark' : 'light'}`}>
                     <i className="fa-solid fa-magnifying-glass"></i>
-                    <textarea type="text" placeholder="Search City" maxLength={33} />
+                    <input 
+                        type="text" 
+                        placeholder="Search City" 
+                        maxLength={33}
+                        value={searchValue}
+                        onChange={(e) => setSearchValue(e.target.value)}
+                        onKeyDown={handleSearchKeyDown}
+                    />
                 </div>
 
                 <div className="right-header">

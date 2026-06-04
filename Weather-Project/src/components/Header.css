@@ -6,7 +6,6 @@
     align-items: center;
     justify-content: space-around;
     padding: 0 40px;
-    transition: all 0.3s ease;
     gap: 5%;
 }
 
@@ -49,7 +48,6 @@
     gap: 15px;
     padding: 0 20px;
     box-sizing: border-box;
-    transition: all 0.3s ease;
     backdrop-filter: blur(20px);
 }
 
@@ -85,7 +83,36 @@
     line-height: 50px;
     resize: none;
     overflow: hidden;
-    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.searchbar input {
+    border: none;
+    outline: none;
+    box-shadow: none;
+    background-color: transparent;
+    height: 50px;
+    width: 100%;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 0 10px;
+    line-height: 50px;
+}
+
+.searchbar.dark input {
+    color: white;
+}
+
+.searchbar.dark input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.searchbar.light input {
+    color: #1a1a2e;
+}
+
+.searchbar.light input::placeholder {
+    color: rgba(26, 26, 46, 0.5);
 }
 
 .searchbar.dark textarea {
@@ -118,7 +145,6 @@
     border: none;
     outline: none;
     cursor: pointer;
-    transition: all 0.3s ease;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -127,12 +153,12 @@
     font-weight: 600;
     font-size: 14px;
     box-shadow: 0 4px 20px rgba(102, 126, 234, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .Location:hover {
     transform: translateY(-3px);
     box-shadow: 0 8px 30px rgba(102, 126, 234, 0.5);
-    filter: brightness(1.08);
 }
 
 .Location:active {
@@ -151,7 +177,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.3s ease;
+    transition: transform 0.2s ease, background 0.15s ease;
+    will-change: transform;
 }
 
 .themeChanger.dark {
@@ -165,7 +192,6 @@
     background: rgba(255, 255, 255, 0.15);
     border-color: rgba(255, 255, 255, 0.3);
     transform: scale(1.1) rotate(20deg);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 }
 
 .themeChanger.light {
@@ -179,5 +205,96 @@
     background: rgba(102, 126, 234, 0.25);
     border-color: rgba(102, 126, 234, 0.5);
     transform: scale(1.1) rotate(-20deg);
-    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.25);
+}
+
+/* Mobile Responsive */
+@media (max-width: 1024px) {
+    .header {
+        padding: 0 20px;
+        gap: 3%;
+    }
+
+    .searchbar {
+        width: 250px;
+    }
+
+    .Location {
+        width: 140px;
+        font-size: 12px;
+        height: 40px;
+    }
+
+    .left-header h2 {
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        flex-wrap: wrap;
+        height: auto;
+        padding: 15px 20px;
+        gap: 10px;
+    }
+
+    .left-header {
+        width: 100%;
+        justify-content: center;
+        order: 1;
+    }
+
+    .searchbar {
+        width: calc(100% - 40px);
+        order: 3;
+    }
+
+    .right-header {
+        order: 2;
+    }
+
+    .left-header h2 {
+        font-size: 20px;
+    }
+
+    .left-header .Logo {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        padding: 12px 15px;
+    }
+
+    .left-header h2 {
+        font-size: 18px;
+    }
+
+    .searchbar {
+        width: calc(100% - 30px);
+        height: 40px;
+        border-radius: 20px;
+    }
+
+    .searchbar textarea {
+        font-size: 14px;
+    }
+
+    .Location {
+        width: 120px;
+        font-size: 11px;
+        height: 35px;
+    }
+
+    .themeChanger {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+    }
+
+    .left-header .Logo {
+        width: 45px;
+        height: 45px;
+    }
 }

@@ -1,5 +1,5 @@
 import './App.css'
-import { useState } from 'react'
+import { useState, useCallback } from 'react'
 import { Header } from './components/Header'
 import { City } from './components/City'
 import { Hourly_Forcast } from './components/Hourly_Forcast'
@@ -10,9 +10,9 @@ import { Footer } from './components/Footer'
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(true)
 
-  const toggleTheme = () => {
-    setIsDarkMode(!isDarkMode)
-  }
+  const toggleTheme = useCallback(() => {
+    setIsDarkMode(prev => !prev)
+  }, [])
 
   return(
     <div className={`app-container ${isDarkMode ? 'dark-mode' : 'light-mode'}`}>
