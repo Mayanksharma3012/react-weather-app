@@ -1,0 +1,47 @@
+.days_container{
+    padding-left: 15vw;
+    margin-bottom: 40px;
+}
+
+.days{
+    width: 70vw;
+    background-color: #1b1a1d;
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* flex-direction: column; */
+    gap: 7vw;
+    border-radius: 28px;
+}
+
+.day{
+    background-color: #16161a;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: 140px;
+    width: 140px;       
+    /* flex-shrink: 0;     Prevents shrinking when space is tight */
+    /* flex-grow: 0;  */
+    align-items: center;
+    justify-content: center;
+}
+
+.day .Daily-Weekdays{
+    font-size: xx-large;
+}
+
+.day .Daily-Weather{
+    font-size: larger;
+    color: skyblue;
+}
+
+.day .Daily-temp{
+    font-size: larger;
+}
+.day .Daily-Date{
+    font-size: xx-large;
+    font-weight: bold;
+}
