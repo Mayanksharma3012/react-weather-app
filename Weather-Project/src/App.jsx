@@ -14,13 +14,17 @@ function App() {
     setIsDarkMode(prev => !prev)
   }, [])
 
+  const [lat_and_lon, set_lat_and_lon] = useState({})
+  // console.log(lat_and_lon.latitude) 
+  // console.log(lat_and_lon.longitude) 
+
   return(
     <div className={`app-container ${isDarkMode ? 'dark-mode' : 'light-mode'}`}>
-      <Header isDarkMode={isDarkMode} toggleTheme={toggleTheme}/>
-      <City isDarkMode={isDarkMode}/>
-      <Hourly_Forcast isDarkMode={isDarkMode}/>
-      <HWA isDarkMode={isDarkMode}/>
-      <Daily_Forcast isDarkMode={isDarkMode}/>
+      <Header isDarkMode={isDarkMode} toggleTheme={toggleTheme} set_lat_and_lon={set_lat_and_lon}/>
+      <City isDarkMode={isDarkMode} lat_and_lon={lat_and_lon}/>
+      <Hourly_Forcast isDarkMode={isDarkMode} lat_and_lon={lat_and_lon}/>
+      <HWA isDarkMode={isDarkMode} lat_and_lon={lat_and_lon}/>
+      <Daily_Forcast isDarkMode={isDarkMode} lat_and_lon={lat_and_lon}/>
       <Footer isDarkMode={isDarkMode}/>
     </div>
   )

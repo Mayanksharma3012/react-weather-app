@@ -1,14 +1,32 @@
 import './Header.css'
 import { useState } from 'react'
 
-export function Header({isDarkMode, toggleTheme}){
-    const [searchValue, setSearchValue] = useState('')
+export function Header({isDarkMode, toggleTheme, set_lat_and_lon }){
+
+    const [city_Name, setCity_Name] = useState('')
 
     const handleSearchKeyDown = (e) => {
         if (e.key === 'Enter') {
             e.preventDefault()
-            setSearchValue('')
+            setCity_Name('')
         }
+    }
+
+
+    const getCoordinates = async (city_Name) => {
+        const coordinates_BaseUrl = import.meta.env.VITE_Base_URL_City_Name;
+
+        const coordinate_Url = `${coordinates_BaseUrl}${city_Name}`
+
+        const response = await fetch(coordinate_Url);
+        const data = await response.json();
+        // console.log(data)
+        // console.log(data?.results?.[0]?.latitude)
+        // console.log(data?.results?.[0]?.longitude)
+        const lat = data?.results?.[0]?.latitude;
+        const lon = data?.results?.[0]?.longitude; 
+        set_lat_and_lon({latitude: lat, longitude: lon})
+
     }
 
     return(
@@ -25,8 +43,11 @@ export function Header({isDarkMode, toggleTheme}){
                         type="text" 
                         placeholder="Search City" 
                         maxLength={33}
-                        value={searchValue}
-                        onChange={(e) => setSearchValue(e.target.value)}
+                        value={city_Name}
+                        onChange={(e) => {
+                            setCity_Name(e.target.value)
+                            getCoordinates(e.target.value)
+                        }}
                         onKeyDown={handleSearchKeyDown}
                     />
                 </div>
