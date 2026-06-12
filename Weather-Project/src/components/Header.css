@@ -115,6 +115,140 @@
     color: rgba(26, 26, 46, 0.5);
 }
 
+.searchbar-container {
+    position: relative;
+    width: 400px;
+}
+
+.suggestions-list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    list-style: none;
+    margin: 8px 0 0 0;
+    padding: 0;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    max-height: 300px;
+    overflow-y: auto;
+    z-index: 1000;
+    backdrop-filter: blur(20px);
+}
+
+.suggestions-list.dark {
+    background-color: rgba(30, 30, 46, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.suggestions-list.light {
+    background-color: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(26, 26, 46, 0.15);
+}
+
+.suggestion-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 18px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.suggestion-item:last-child {
+    border-bottom: none;
+}
+
+.suggestions-list.dark .suggestion-item {
+    color: white;
+}
+
+.suggestions-list.dark .suggestion-item:hover {
+    background-color: rgba(102, 126, 234, 0.2);
+}
+
+.suggestions-list.dark .suggestion-item i {
+    color: rgba(102, 126, 234, 0.7);
+    font-size: 14px;
+}
+
+.suggestions-list.light .suggestion-item {
+    color: #1a1a2e;
+}
+
+.suggestions-list.light .suggestion-item:hover {
+    background-color: rgba(102, 126, 234, 0.1);
+}
+
+.suggestions-list.light .suggestion-item i {
+    color: rgba(102, 126, 234, 0.6);
+    font-size: 14px;
+}
+
+.suggestion-text {
+    flex: 1;
+    min-width: 0;
+}
+
+.city-name {
+    font-weight: 600;
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.city-details {
+    font-size: 12px;
+    opacity: 0.7;
+    display: flex;
+    gap: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.city-details span {
+    display: inline-block;
+}
+
+.city-details span:not(:last-child)::after {
+    content: ',';
+    margin-right: 5px;
+}
+
+.suggestions-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.suggestions-list.dark::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.suggestions-list.dark::-webkit-scrollbar-thumb {
+    background: rgba(102, 126, 234, 0.5);
+    border-radius: 3px;
+}
+
+.suggestions-list.dark::-webkit-scrollbar-thumb:hover {
+    background: rgba(102, 126, 234, 0.7);
+}
+
+.suggestions-list.light::-webkit-scrollbar-track {
+    background: rgba(102, 126, 234, 0.05);
+}
+
+.suggestions-list.light::-webkit-scrollbar-thumb {
+    background: rgba(102, 126, 234, 0.3);
+    border-radius: 3px;
+}
+
+.suggestions-list.light::-webkit-scrollbar-thumb:hover {
+    background: rgba(102, 126, 234, 0.5);
+}
+
 .searchbar.dark textarea {
     color: white;
 }
@@ -214,7 +348,7 @@
         gap: 3%;
     }
 
-    .searchbar {
+    .searchbar-container {
         width: 250px;
     }
 
@@ -226,6 +360,10 @@
 
     .left-header h2 {
         font-size: 22px;
+    }
+
+    .suggestions-list {
+        max-height: 250px;
     }
 }
 
@@ -243,7 +381,7 @@
         order: 1;
     }
 
-    .searchbar {
+    .searchbar-container {
         width: calc(100% - 40px);
         order: 3;
     }
@@ -260,6 +398,10 @@
         width: 50px;
         height: 50px;
     }
+
+    .suggestions-list {
+        max-height: 280px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -271,7 +413,7 @@
         font-size: 18px;
     }
 
-    .searchbar {
+    .searchbar-container {
         width: calc(100% - 30px);
         height: 40px;
         border-radius: 20px;
@@ -296,5 +438,21 @@
     .left-header .Logo {
         width: 45px;
         height: 45px;
+    }
+
+    .suggestions-list {
+        max-height: 200px;
+    }
+
+    .suggestion-item {
+        padding: 10px 14px;
+    }
+
+    .city-name {
+        font-size: 13px;
+    }
+
+    .city-details {
+        font-size: 11px;
     }
 }
