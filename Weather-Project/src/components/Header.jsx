@@ -49,7 +49,7 @@ export function Header({isDarkMode, toggleTheme, set_lat_and_lon }){
         setCity_Name(cityDisplayName)
         setSuggestions([])
         setShowSuggestions(false)
-        set_lat_and_lon({latitude: suggestion.latitude, longitude: suggestion.longitude})
+        set_lat_and_lon({city: suggestion.name ,latitude: suggestion.latitude, longitude: suggestion.longitude})
         setCity_Name('')
     }
 

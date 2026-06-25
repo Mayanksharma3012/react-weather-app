@@ -1,6 +1,6 @@
 import './Hourly_Forcast.css'
 
-export function Hourly_Forcast({isDarkMode}) {
+export function Hourly_Forcast({isDarkMode, weatherData}) {
 
     return (
         <>
@@ -11,9 +11,8 @@ export function Hourly_Forcast({isDarkMode}) {
                         <h2>24-Hour Forecast</h2>
                     </div>
                     <div className={`hourlyContainer ${isDarkMode ? 'dark' : 'light'}`}>
-                        {Array.from({ length: 24 }).map((_, i) => {
-                            const temp = 18 + Math.floor(Math.random() * 15);
-                            return (
+                        {weatherData?.hourly?.temperature_2m ? (
+                            weatherData.hourly.temperature_2m.slice(0, 24).map((temp, i) => (
                                 <div key={i} className={`childContainer ${isDarkMode ? 'dark' : 'light'}`}>
                                     <span>{String(i).padStart(2, '0')}:00</span>
                                     <div className="Sun_Moon_logo">
@@ -23,10 +22,12 @@ export function Hourly_Forcast({isDarkMode}) {
                                             <i className="fa-solid fa-sun"></i>
                                         )}
                                     </div>
-                                    <div className="hourly_temp">{temp}°</div>
+                                    <div className="hourly_temp">{Math.round(temp)}°</div>
                                 </div>
-                            );
-                        })}
+                            ))
+                        ) : (
+                            <div className="hourly-loading">Loading hourly forecast...</div>
+                        )}
                     </div>
                 </div>
             </div>

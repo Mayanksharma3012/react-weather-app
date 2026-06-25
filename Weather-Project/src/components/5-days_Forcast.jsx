@@ -1,13 +1,27 @@
 import './5-days_Forcast.css'
 
-export function Daily_Forcast({isDarkMode}){
-    const days = [
-        { day: 'Today', high: 41, low: 31, date: 'Jun 4', icon: 'fa-sun' },
-        { day: 'Thu', high: 40, low: 30, date: 'Jun 5', icon: 'fa-cloud-sun' },
-        { day: 'Fri', high: 38, low: 28, date: 'Jun 6', icon: 'fa-cloud-rain' },
-        { day: 'Sat', high: 42, low: 32, date: 'Jun 7', icon: 'fa-sun' },
-        { day: 'Sun', high: 39, low: 29, date: 'Jun 8', icon: 'fa-cloud' }
-    ];
+function formatDayName(dateString, index) {
+    const date = new Date(dateString)
+    if (index === 0) return 'Today'
+    return date.toLocaleDateString('en-US', { weekday: 'short' })
+}
+
+function formatMonthDay(dateString) {
+    const date = new Date(dateString)
+    return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })
+}
+
+export function Daily_Forcast({isDarkMode, weatherData}){
+    if (!weatherData?.daily?.time?.length) return null;
+
+    const count = Math.min(weatherData.daily.time.length, 5)
+    const days = weatherData.daily.time.slice(0, count).map((date, idx) => ({
+        day: formatDayName(date, idx),
+        date: formatMonthDay(date),
+        high: Math.round(weatherData.daily.temperature_2m_max[idx]),
+        low: Math.round(weatherData.daily.temperature_2m_min[idx]),
+        icon: 'fa-sun'
+    }))
 
     return(
         <>
