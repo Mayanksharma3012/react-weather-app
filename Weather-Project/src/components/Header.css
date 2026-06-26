@@ -393,7 +393,7 @@
     }
 
     .searchbar-container {
-        width: calc(100% - 40px);
+        width: 100% ;
         order: 3;
     }
 
@@ -413,6 +413,10 @@
     .suggestions-list {
         max-height: 280px;
     }
+
+    .searchbar {
+        width: 100%;   /* add this */
+    }
 }
 
 @media (max-width: 480px) {
@@ -425,9 +429,14 @@
     }
 
     .searchbar-container {
-        width: calc(100% - 30px);
+        width: 100%;
         height: 40px;
         border-radius: 20px;
+    }
+
+    .searchbar {
+        width: 100%;   /* add this */
+        height: 40px;
     }
 
     .searchbar textarea {
