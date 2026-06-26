@@ -1,4 +1,5 @@
 import './5-days_Forcast.css'
+import { getWeatherInfo } from '../utils/WeatherCode'
 
 function formatDayName(dateString, index) {
     const date = new Date(dateString)
@@ -20,7 +21,7 @@ export function Daily_Forcast({isDarkMode, weatherData}){
         date: formatMonthDay(date),
         high: Math.round(weatherData.daily.temperature_2m_max[idx]),
         low: Math.round(weatherData.daily.temperature_2m_min[idx]),
-        icon: 'fa-sun'
+        icon: getWeatherInfo(weatherData.daily.weather_code[idx]).icon
     }))
 
     return(

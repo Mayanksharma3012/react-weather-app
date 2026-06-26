@@ -7,6 +7,8 @@ import { HWA } from './components/HWA' // HWA = Humidity Wind AQI.
 import { Daily_Forcast } from './components/5-days_Forcast'
 import { Footer } from './components/Footer'
 
+const LAST_CITY_KEY = 'lastCity'
+
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(true)
 
@@ -21,7 +23,7 @@ function App() {
   const [weatherData, setWeatherData] = useState()
     const WeatherInfo = async () => {
       const weather_Base_Url = import.meta.env.VITE_BASE_URL_Weather;
-      const weather_Url = `${weather_Base_Url}?latitude=${lat_and_lon.latitude}&longitude=${lat_and_lon.longitude}&current=temperature_2m,relative_humidity_2m,wind_speed_10m&hourly=temperature_2m,relative_humidity_2m,wind_speed_10m&daily=temperature_2m_max,temperature_2m_min&timezone=auto`
+      const weather_Url = `${weather_Base_Url}?latitude=${lat_and_lon.latitude}&longitude=${lat_and_lon.longitude}&current=temperature_2m,relative_humidity_2m,wind_speed_10m,weather_code&hourly=temperature_2m,relative_humidity_2m,wind_speed_10m,weather_code,is_day&daily=temperature_2m_max,temperature_2m_min,weather_code&timezone=auto`
   
       try {
       const response = await fetch(weather_Url);
@@ -38,7 +40,28 @@ function App() {
       WeatherInfo();
     }, [lat_and_lon]);
 
+    // Whenever the selected city changes, save it so it persists across reloads.
+    useEffect(() => {
+      if (Object.keys(lat_and_lon).length === 0) return;
+      try {
+        localStorage.setItem(LAST_CITY_KEY, JSON.stringify(lat_and_lon))
+      } catch (error) {
+        console.error('Error saving last city to localStorage:', error)
+      }
+    }, [lat_and_lon]);
+
+    // On first load, use the last saved city if one exists; otherwise fall back
+    // to Nagpur as the default.
     useEffect(()=>{
+      try {
+        const saved = localStorage.getItem(LAST_CITY_KEY)
+        if (saved) {
+          set_lat_and_lon(JSON.parse(saved))
+          return
+        }
+      } catch (error) {
+        console.error('Error reading last city from localStorage:', error)
+      }
       set_lat_and_lon({ city: 'nagpur' ,latitude: 21.14631, longitude: 79.08491})
     },[])
   

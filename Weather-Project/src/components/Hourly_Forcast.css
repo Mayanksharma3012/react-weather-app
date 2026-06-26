@@ -122,6 +122,27 @@
     opacity: 0.8;
 }
 
+/* Highlight the card representing the current hour so it stands out
+   from the rest of the 24-hour strip. */
+.childContainer.now {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.25) 0%, rgba(118, 75, 162, 0.25) 100%);
+    border-color: rgba(102, 126, 234, 0.6);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.25);
+}
+
+.childContainer.now span {
+    opacity: 1;
+    color: #667eea;
+}
+
+.childContainer.dark.now {
+    border-color: rgba(102, 126, 234, 0.7);
+}
+
+.childContainer.light.now {
+    border-color: rgba(102, 126, 234, 0.5);
+}
+
 .Sun_Moon_logo {
     font-size: 32px;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -133,6 +154,10 @@
 .hourly_temp {
     font-size: 18px;
     font-weight: 700;
+}
+
+.childContainer.now .hourly_temp {
+    color: #667eea;
 }
 
 @media (max-width: 1024px) {
