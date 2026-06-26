@@ -1,6 +1,6 @@
 import './Hourly_Forcast.css'
 import { useEffect, useRef } from 'react'
-import { getWeatherIcon } from '../utils/weatherCode'
+import { getWeatherIcon } from '../utils/WeatherCode'
 
 export function Hourly_Forcast({isDarkMode, weatherData}) {
 
